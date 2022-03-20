@@ -1,0 +1,12 @@
+.list{
+    display: grid;
+    grid-template-columns: 56% 18% 18%;
+    column-gap: 2%;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background-color: grey;
+    border-bottom: 1px solid black;
+}
