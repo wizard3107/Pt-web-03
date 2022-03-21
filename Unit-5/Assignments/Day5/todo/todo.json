@@ -1,0 +1,44 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "value": "complete React",
+      "status": false
+    },
+    {
+      "value": "react",
+      "status": false,
+      "id": 2
+    },
+    {
+      "value": "ashish",
+      "stat": false,
+      "id": 3
+    },
+    {
+      "value": "singh",
+      "stat": false,
+      "id": 4
+    },
+    {
+      "value": "anything",
+      "stat": false,
+      "id": 5
+    },
+    {
+      "value": "ashis",
+      "stat": false,
+      "id": 6
+    },
+    {
+      "value": "jkcjf",
+      "stat": false,
+      "id": 7
+    },
+    {
+      "value": "jsdkfbgfhgm",
+      "stat": false,
+      "id": 8
+    }
+  ]
+}
