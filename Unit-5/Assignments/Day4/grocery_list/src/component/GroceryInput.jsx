@@ -11,7 +11,8 @@ const GroceryInput = ({list,setList}) => {
         {
         const data={
             value,
-            id:v4()
+            id:v4(),
+            stat:false
         }
 
         console.log(data);
