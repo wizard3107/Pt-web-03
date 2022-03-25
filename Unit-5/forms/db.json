@@ -1,0 +1,39 @@
+{
+  "employee": [
+    {
+      "Name": "Ashish",
+      "Department": "IT",
+      "Salary": 90000,
+      "Address": "defence Colony",
+      "Married": false,
+      "Age": 21,
+      "id": 1
+    },
+    {
+      "Name": "Ravi",
+      "Department": "HR",
+      "Salary": 100000,
+      "Address": "Bareilly",
+      "Married": false,
+      "Age": 25,
+      "id": 2
+    },
+    {
+      "Name": "Pankaj ",
+      "Age": 24,
+      "Address": "bea;rfv",
+      "Department": "Marketting",
+      "Salary": 64531,
+      "id": 3
+    },
+    {
+      "Name": "abhishek",
+      "Department": "Finance",
+      "Salary": 250000,
+      "Address": "defence ",
+      "Married": false,
+      "Age": 22,
+      "id": 4
+    }
+  ]
+}
