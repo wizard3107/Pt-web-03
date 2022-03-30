@@ -1,0 +1,23 @@
+{
+    "user":[{
+        "id":1,
+        "name":"Ashish"
+    },
+    {
+        "id": 2,
+        "name": "Pankaj"
+    },
+    {
+        "id": 3,
+        "name": "Ravinder"
+    },
+    {
+        "id": 4,
+        "name": "Abhishek"
+    },
+    {
+        "id": 5,
+        "name": "Kaushik"
+    }
+]
+}
