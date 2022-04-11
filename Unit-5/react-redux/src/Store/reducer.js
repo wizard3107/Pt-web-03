@@ -1,10 +1,16 @@
-import { COUNTER_DECREMENT, COUNTER_INCREMENT } from "./actionTypes"
+import { ADD_TODOS, CART_COUNT, DELETE_TODOS } from "./actionTypes"
 
-export const reducer =(state,{type,payload})=>{
+export const reducer = (state, { type, payload }) => {
 
-    switch(type){
-        case COUNTER_INCREMENT: return {...state,count:state.count+1}
-        case COUNTER_DECREMENT: return { ...state, count: state.count - 1 }
-        default : return state
+    switch (type) {
+        case CART_COUNT: return { ...state, count: state.todos.length }
+        case ADD_TODOS: return { ...state, todos: [...state.todos, payload] }
+        case DELETE_TODOS:{ 
+        console.log(payload) ;
+        return { 
+            ...state,
+             todos: state.todos.filter((todo) => todo.id !== payload) 
+            }}
+        default: return state
     }
 }   
