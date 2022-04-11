@@ -16,3 +16,4 @@ class Store {
 
 let store = new Store(reducer, { counter: 0 })
 console.log(store.getState());
+// 51d-kamlA nagar
