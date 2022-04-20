@@ -1,0 +1,1178 @@
+use intro
+switched to db intro
+
+ db.movies.find({"movie_name":{$eq:"Daniel"}}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c3"),
+        "id" : 12,
+        "movie_name" : "Daniel",
+        "movie_genre" : "Drama",
+        "production_year" : 2014,
+        "budget" : 12141
+}
+
+> db.movies.find({"movie_name":{$ne:"Daniel"}}).limit(5)pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b8"),
+        "id" : 1,
+        "movie_name" : "Slacker",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2008,
+        "budget" : 12028
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b9"),
+        "id" : 2,
+        "movie_name" : "Fugly!",
+        "movie_genre" : "Comedy",
+        "production_year" : 1995,
+        "budget" : 14094
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ba"),
+        "id" : 3,
+        "movie_name" : "Mission: Impossible II",
+        "movie_genre" : "Action|Adventure|Thriller",
+        "production_year" : 2001,
+        "budget" : 18585
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bb"),
+        "id" : 4,
+        "movie_name" : "Safety Patrol",
+        "movie_genre" : "(no genres listed)",
+        "production_year" : 2016,
+        "budget" : 15804
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bc"),
+        "id" : 5,
+        "movie_name" : "Rebirth of Mothra",
+        "movie_genre" : "Action|Fantasy|Sci-Fi",
+        "production_year" : 1992,
+        "budget" : 18730
+}
+
+ db.movies.find({"budget":{$gte:15000}}).limit(5).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ba"),
+        "id" : 3,
+        "movie_name" : "Mission: Impossible II",
+        "movie_genre" : "Action|Adventure|Thriller",
+        "production_year" : 2001,
+        "budget" : 18585
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bb"),
+        "id" : 4,
+        "movie_name" : "Safety Patrol",
+        "movie_genre" : "(no genres listed)",
+        "production_year" : 2016,
+        "budget" : 15804
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bc"),
+        "id" : 5,
+        "movie_name" : "Rebirth of Mothra",
+        "movie_genre" : "Action|Fantasy|Sci-Fi",
+        "production_year" : 1992,
+        "budget" : 18730
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bd"),
+        "id" : 6,
+        "movie_name" : "Lifted",
+        "movie_genre" : "Animation|Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 16366
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bf"),
+        "id" : 8,
+        "movie_name" : "Pokrajina St.2",
+        "movie_genre" : "Thriller",
+        "production_year" : 1993,
+        "budget" : 18965
+}
+
+db.movies.find({"budget":{$lte:12000}}).limit(5).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1be"),
+        "id" : 7,
+        "movie_name" : "Fritz the Cat",
+        "movie_genre" : "Animation",
+        "production_year" : 1991,
+        "budget" : 11644
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c1"),
+        "id" : 10,
+        "movie_name" : "Chocolate",
+        "movie_genre" : "Action|Drama",
+        "production_year" : 2017,
+        "budget" : 10536
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c2"),
+        "id" : 11,
+        "movie_name" : "Last Night",
+        "movie_genre" : "Drama|Sci-Fi",
+        "production_year" : 2020,
+        "budget" : 9749
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c4"),
+        "id" : 13,
+        "movie_name" : "Save the Date",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2017,
+        "budget" : 11951
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cb"),
+        "id" : 20,
+        "movie_name" : "Untouchables, The",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : 1994,
+        "budget" : 11786
+}
+
+
+db.movies.find({$and:[{"budget":{$gt:10000}},{"production_year":{$gte:2000}}]}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b8"),
+        "id" : 1,
+        "movie_name" : "Slacker",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2008,
+        "budget" : 12028
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ba"),
+        "id" : 3,
+        "movie_name" : "Mission: Impossible II",
+        "movie_genre" : "Action|Adventure|Thriller",
+        "production_year" : 2001,
+        "budget" : 18585
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bb"),
+        "id" : 4,
+        "movie_name" : "Safety Patrol",
+        "movie_genre" : "(no genres listed)",
+        "production_year" : 2016,
+        "budget" : 15804
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bd"),
+        "id" : 6,
+        "movie_name" : "Lifted",
+        "movie_genre" : "Animation|Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 16366
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c0"),
+        "id" : 9,
+        "movie_name" : "Last Man, The",
+        "movie_genre" : "Comedy|Romance|Sci-Fi",
+        "production_year" : 2017,
+        "budget" : 19257
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c1"),
+        "id" : 10,
+        "movie_name" : "Chocolate",
+        "movie_genre" : "Action|Drama",
+        "production_year" : 2017,
+        "budget" : 10536
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c3"),
+        "id" : 12,
+        "movie_name" : "Daniel",
+        "movie_genre" : "Drama",
+        "production_year" : 2014,
+        "budget" : 12141
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c4"),
+        "id" : 13,
+        "movie_name" : "Save the Date",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2017,
+        "budget" : 11951
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c5"),
+        "id" : 14,
+        "movie_name" : "Moloch (Molokh)",
+        "movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 19093
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cc"),
+        "id" : 21,
+        "movie_name" : "Killing Kasztner",
+        "movie_genre" : "Documentary",
+        "production_year" : 2005,
+        "budget" : 19311
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cd"),
+        "id" : 22,
+        "movie_name" : "Little White Lies (Les petits mouchoirs)",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2019,
+        "budget" : 19914
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ce"),
+        "id" : 23,
+        "movie_name" : "Goodbye, Mr. Chips",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 15735
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cf"),
+        "id" : 24,
+        "movie_name" : "Roger & Me",
+        "movie_genre" : "Documentary",
+        "production_year" : 2012,
+        "budget" : 13437
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d1"),
+        "id" : 26,
+        "movie_name" : "Scanners",
+        "movie_genre" : "Horror|Sci-Fi|Thriller",
+        "production_year" : 2000,
+        "budget" : 11932
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d3"),
+        "id" : 28,
+        "movie_name" : "Terminal, The",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2008,
+        "budget" : 17454
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d6"),
+        "id" : 31,
+        "movie_name" : "Little Shop of Horrors",
+        "movie_genre" : "Comedy|Horror|Musical",
+        "production_year" : 2005,
+        "budget" : 13433
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d7"),
+        "id" : 32,
+        "movie_name" : "Double Trouble",
+        "movie_genre" : "Musical",
+        "production_year" : 2019,
+        "budget" : 15683
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d9"),
+        "id" : 34,
+        "movie_name" : "Year of the Comet",
+        "movie_genre" : "Action|Adventure|Comedy|Romance",
+        "production_year" : 2019,
+        "budget" : 19723
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1da"),
+        "id" : 35,
+        "movie_name" : "Defiance",
+        "movie_genre" : "Drama|Thriller|War",
+        "production_year" : 2010,
+        "budget" : 13560
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1dc"),
+        "id" : 37,
+        "movie_name" : "Navy Seals",
+        "movie_genre" : "Action|Adventure|War",
+        "production_year" : 2003,
+        "budget" : 14219
+}
+Type "it" for more
+
+db.movies.find({$or:[{"budget":{$gt:10000}},{"production_year":{$gte:2000}}]}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b8"),
+        "id" : 1,
+        "movie_name" : "Slacker",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2008,
+        "budget" : 12028
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b9"),
+        "id" : 2,
+        "movie_name" : "Fugly!",
+        "movie_genre" : "Comedy",
+        "production_year" : 1995,
+        "budget" : 14094
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ba"),
+        "id" : 3,
+        "movie_name" : "Mission: Impossible II",
+        "movie_genre" : "Action|Adventure|Thriller",
+        "production_year" : 2001,
+        "budget" : 18585
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bb"),
+        "id" : 4,
+        "movie_name" : "Safety Patrol",
+        "movie_genre" : "(no genres listed)",
+        "production_year" : 2016,
+        "budget" : 15804
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bc"),
+        "id" : 5,
+        "movie_name" : "Rebirth of Mothra",
+        "movie_genre" : "Action|Fantasy|Sci-Fi",
+        "production_year" : 1992,
+        "budget" : 18730
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bd"),
+        "id" : 6,
+        "movie_name" : "Lifted",
+        "movie_genre" : "Animation|Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 16366
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1be"),
+        "id" : 7,
+        "movie_name" : "Fritz the Cat",
+        "movie_genre" : "Animation",
+        "production_year" : 1991,
+        "budget" : 11644
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bf"),
+        "id" : 8,
+        "movie_name" : "Pokrajina St.2",
+        "movie_genre" : "Thriller",
+        "production_year" : 1993,
+        "budget" : 18965
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c0"),
+        "id" : 9,
+        "movie_name" : "Last Man, The",
+        "movie_genre" : "Comedy|Romance|Sci-Fi",
+        "production_year" : 2017,
+        "budget" : 19257
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c1"),
+        "id" : 10,
+        "movie_name" : "Chocolate",
+        "movie_genre" : "Action|Drama",
+        "production_year" : 2017,
+        "budget" : 10536
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c2"),
+        "id" : 11,
+        "movie_name" : "Last Night",
+        "movie_genre" : "Drama|Sci-Fi",
+        "production_year" : 2020,
+        "budget" : 9749
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c3"),
+        "id" : 12,
+        "movie_name" : "Daniel",
+        "movie_genre" : "Drama",
+        "production_year" : 2014,
+        "budget" : 12141
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c4"),
+        "id" : 13,
+        "movie_name" : "Save the Date",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2017,
+        "budget" : 11951
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c5"),
+        "id" : 14,
+        "movie_name" : "Moloch (Molokh)",
+        "movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 19093
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c6"),
+        "id" : 15,
+        "movie_name" : "Princess and the Frog, The",
+        "movie_genre" : "Animation|Children|Fantasy|Musical|Romance",
+        "production_year" : 1994,
+        "budget" : 19960
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c7"),
+        "id" : 16,
+        "movie_name" : "Lost World, The",
+        "movie_genre" : "Adventure|Sci-Fi",
+        "production_year" : 1992,
+        "budget" : 12952
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c8"),
+        "id" : 17,
+        "movie_name" : "List of Adrian Messenger, The",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 1995,
+        "budget" : 13517
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c9"),
+        "id" : 18,
+        "movie_name" : "Legend of the Lone Ranger, The",
+        "movie_genre" : "Western",
+        "production_year" : 1993,
+        "budget" : 19522
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ca"),
+        "id" : 19,
+        "movie_name" : "Samurai Fiction (SF: Episode One)",
+        "movie_genre" : "Action|Adventure|Comedy",
+        "production_year" : 1991,
+        "budget" : 18596
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cb"),
+        "id" : 20,
+        "movie_name" : "Untouchables, The",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : 1994,
+        "budget" : 11786
+}
+Type "it" for more
+
+db.movies.find({$nor:[{"budget":{$gt:10000}},{"production_year":{$gte:2000}}]}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e21a"),
+        "id" : 99,
+        "movie_name" : "Heiress, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 1992,
+        "budget" : 9158
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e261"),
+        "id" : 170,
+        "movie_name" : "Mudhoney",
+        "movie_genre" : "Drama",
+        "production_year" : 1994,
+        "budget" : 9631
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e27a"),
+        "id" : 195,
+        "movie_name" : "Male and Female",
+        "movie_genre" : "Adventure|Drama",
+        "production_year" : 1998,
+        "budget" : 9554
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e28f"),
+        "id" : 216,
+        "movie_name" : "Haunted Honeymoon",
+        "movie_genre" : "Comedy",
+        "production_year" : 1994,
+        "budget" : 9037
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e29b"),
+        "id" : 228,
+        "movie_name" : "Annie",
+        "movie_genre" : "Children|Comedy|Drama|Musical",
+        "production_year" : 1990,
+        "budget" : 9701
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2b1"),
+        "id" : 250,
+        "movie_name" : "Splinter",
+        "movie_genre" : "Action|Horror|Thriller",
+        "production_year" : 1990,
+        "budget" : 9246
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2cd"),
+        "id" : 278,
+        "movie_name" : "Arcade",
+        "movie_genre" : "Horror|Sci-Fi",
+        "production_year" : 1991,
+        "budget" : 9302
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2d3"),
+        "id" : 284,
+        "movie_name" : "Joe's Apartment",
+        "movie_genre" : "Comedy|Fantasy|Musical",
+        "production_year" : 1998,
+        "budget" : 9920
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e328"),
+        "id" : 369,
+        "movie_name" : "HazMat",
+        "movie_genre" : "Horror",
+        "production_year" : 1994,
+        "budget" : 9544
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e32e"),
+        "id" : 375,
+        "movie_name" : "Naked Edge, The",
+        "movie_genre" : "Thriller",
+        "production_year" : 1991,
+        "budget" : 9039
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e34b"),
+        "id" : 404,
+        "movie_name" : "Even Angels Eat Beans",
+        "movie_genre" : "Action|Comedy|Crime",
+        "production_year" : 1999,
+        "budget" : 9224
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e368"),
+        "id" : 433,
+        "movie_name" : "61*",
+        "movie_genre" : "Drama",
+        "production_year" : 1994,
+        "budget" : 9631
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e379"),
+        "id" : 450,
+        "movie_name" : "S.F.W.",
+        "movie_genre" : "Drama",
+        "production_year" : 1998,
+        "budget" : 9781
+}
+
+
+db.movies.find({$or:[{"budget":{$not:{$gt:10000}}},{"production_year":{$not:{$gte:2000}}}]}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b9"),
+        "id" : 2,
+        "movie_name" : "Fugly!",
+        "movie_genre" : "Comedy",
+        "production_year" : 1995,
+        "budget" : 14094
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bc"),
+        "id" : 5,
+        "movie_name" : "Rebirth of Mothra",
+        "movie_genre" : "Action|Fantasy|Sci-Fi",
+        "production_year" : 1992,
+        "budget" : 18730
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1be"),
+        "id" : 7,
+        "movie_name" : "Fritz the Cat",
+        "movie_genre" : "Animation",
+        "production_year" : 1991,
+        "budget" : 11644
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bf"),
+        "id" : 8,
+        "movie_name" : "Pokrajina St.2",
+        "movie_genre" : "Thriller",
+        "production_year" : 1993,
+        "budget" : 18965
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c2"),
+        "id" : 11,
+        "movie_name" : "Last Night",
+        "movie_genre" : "Drama|Sci-Fi",
+        "production_year" : 2020,
+        "budget" : 9749
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c6"),
+        "id" : 15,
+        "movie_name" : "Princess and the Frog, The",
+        "movie_genre" : "Animation|Children|Fantasy|Musical|Romance",
+        "production_year" : 1994,
+        "budget" : 19960
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c7"),
+        "id" : 16,
+        "movie_name" : "Lost World, The",
+        "movie_genre" : "Adventure|Sci-Fi",
+        "production_year" : 1992,
+        "budget" : 12952
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c8"),
+        "id" : 17,
+        "movie_name" : "List of Adrian Messenger, The",
+        "movie_genre" : "Crime|Drama|Mystery",
+        "production_year" : 1995,
+        "budget" : 13517
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c9"),
+        "id" : 18,
+        "movie_name" : "Legend of the Lone Ranger, The",
+        "movie_genre" : "Western",
+        "production_year" : 1993,
+        "budget" : 19522
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ca"),
+        "id" : 19,
+        "movie_name" : "Samurai Fiction (SF: Episode One)",
+        "movie_genre" : "Action|Adventure|Comedy",
+        "production_year" : 1991,
+        "budget" : 18596
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cb"),
+        "id" : 20,
+        "movie_name" : "Untouchables, The",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : 1994,
+        "budget" : 11786
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d0"),
+        "id" : 25,
+        "movie_name" : "Padre padrone",
+        "movie_genre" : "Drama",
+        "production_year" : 1999,
+        "budget" : 11333
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d2"),
+        "id" : 27,
+        "movie_name" : "Nothing",
+        "movie_genre" : "Comedy|Fantasy|Mystery|Sci-Fi",
+        "production_year" : 1993,
+        "budget" : 14048
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d4"),
+        "id" : 29,
+        "movie_name" : "Baxter, The",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 1991,
+        "budget" : 14535
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d5"),
+        "id" : 30,
+        "movie_name" : "Yatterman (Yattâman)",
+        "movie_genre" : "Action|Comedy|Fantasy",
+        "production_year" : 1992,
+        "budget" : 19078
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d8"),
+        "id" : 33,
+        "movie_name" : "Turin Horse, The (A Torinói ló)",
+        "movie_genre" : "Drama",
+        "production_year" : 1994,
+        "budget" : 19104
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1db"),
+        "id" : 36,
+        "movie_name" : "My Avatar and Me (Min Avatar og mig)",
+        "movie_genre" : "Documentary",
+        "production_year" : 1994,
+        "budget" : 17554
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1dd"),
+        "id" : 38,
+        "movie_name" : "Operation Homecoming: Writing the Wartime Experience",
+        "movie_genre" : "Documentary",
+        "production_year" : 1993,
+        "budget" : 19753
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1e1"),
+        "id" : 42,
+        "movie_name" : "Back to School",
+        "movie_genre" : "Comedy",
+        "production_year" : 1992,
+        "budget" : 10881
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1e2"),
+        "id" : 43,
+        "movie_name" : "April Love",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 2006,
+        "budget" : 9687
+}
+Type "it" for more
+
+> db.movies.find({"production_year":{$in:[2000,2001,2002,2003,2004,2005,2006,2007,20008,2009,2010]}}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ba"),
+        "id" : 3,
+        "movie_name" : "Mission: Impossible II",
+        "movie_genre" : "Action|Adventure|Thriller",
+        "production_year" : 2001,
+        "budget" : 18585
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bd"),
+        "id" : 6,
+        "movie_name" : "Lifted",
+        "movie_genre" : "Animation|Comedy|Sci-Fi",
+        "production_year" : 2001,
+        "budget" : 16366
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1cc"),
+        "id" : 21,
+        "movie_name" : "Killing Kasztner",
+        "movie_genre" : "Documentary",
+        "production_year" : 2005,
+        "budget" : 19311
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d1"),
+        "id" : 26,
+        "movie_name" : "Scanners",
+        "movie_genre" : "Horror|Sci-Fi|Thriller",
+        "production_year" : 2000,
+        "budget" : 11932
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d6"),
+        "id" : 31,
+        "movie_name" : "Little Shop of Horrors",
+        "movie_genre" : "Comedy|Horror|Musical",
+        "production_year" : 2005,
+        "budget" : 13433
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1da"),
+        "id" : 35,
+        "movie_name" : "Defiance",
+        "movie_genre" : "Drama|Thriller|War",
+        "production_year" : 2010,
+        "budget" : 13560
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1dc"),
+        "id" : 37,
+        "movie_name" : "Navy Seals",
+        "movie_genre" : "Action|Adventure|War",
+        "production_year" : 2003,
+        "budget" : 14219
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1de"),
+        "id" : 39,
+        "movie_name" : "How I Got Into College",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2007,
+        "budget" : 11415
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1e2"),
+        "id" : 43,
+        "movie_name" : "April Love",
+        "movie_genre" : "Comedy|Drama|Musical",
+        "production_year" : 2006,
+        "budget" : 9687
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1e6"),
+        "id" : 47,
+        "movie_name" : "Average Little Man, An (Un borghese piccolo piccolo)",
+        "movie_genre" : "Drama",
+        "production_year" : 2007,
+        "budget" : 18591
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1e8"),
+        "id" : 49,
+        "movie_name" : "Dragon Ball Z the Movie: The Tree of Might (Doragon bôru Z 3: Chikyû marugoto chô kessen)",
+        "movie_genre" : "Action|Adventure|Animation|Sci-Fi",
+        "production_year" : 2006,
+        "budget" : 10941
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ee"),
+        "id" : 55,
+        "movie_name" : "Hit Squad",
+        "movie_genre" : "Action|Comedy",
+        "production_year" : 2005,
+        "budget" : 10780
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1f0"),
+        "id" : 57,
+        "movie_name" : "Step Up Love Story (Futari ecchi)",
+        "movie_genre" : "Animation|Comedy|Romance",
+        "production_year" : 2005,
+        "budget" : 12266
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1f1"),
+        "id" : 58,
+        "movie_name" : "My Little Chickadee",
+        "movie_genre" : "Comedy|Western",
+        "production_year" : 2005,
+        "budget" : 16344
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1f5"),
+        "id" : 62,
+        "movie_name" : "History of Postwar Japan as Told by a Bar Hostess (Nippon Sengoshi - Madamu onboro no Seikatsu)",
+        "movie_genre" : "Documentary",
+        "production_year" : 2002,
+        "budget" : 15670
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1f6"),
+        "id" : 63,
+        "movie_name" : "Bridge, The (Most)",
+        "movie_genre" : "Drama",
+        "production_year" : 2004,
+        "budget" : 15015
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1f8"),
+        "id" : 65,
+        "movie_name" : "Sorority House Massacre",
+        "movie_genre" : "Horror",
+        "production_year" : 2010,
+        "budget" : 12765
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1fe"),
+        "id" : 71,
+        "movie_name" : "Man There Was, A (Terje Vigen)",
+        "movie_genre" : "Drama",
+        "production_year" : 2009,
+        "budget" : 17198
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ff"),
+        "id" : 72,
+        "movie_name" : "XXY",
+        "movie_genre" : "Drama",
+        "production_year" : 2006,
+        "budget" : 18807
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e200"),
+        "id" : 73,
+        "movie_name" : "B.N.B. (Bunty Aur Babli)",
+        "movie_genre" : "Adventure|Comedy|Crime",
+        "production_year" : 2002,
+        "budget" : 13293
+}
+Type "it" for more
+
+
+ db.movies.find({}).sort({production_year: -1,movie_name: 1}).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e202"),
+        "id" : 75,
+        "movie_name" : "Action Jackson",
+        "movie_genre" : "Action|Drama|Romance",
+        "production_year" : 2020,
+        "budget" : 19649
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e350"),
+        "id" : 409,
+        "movie_name" : "Classmates",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2020,
+        "budget" : 16487
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e25b"),
+        "id" : 164,
+        "movie_name" : "Death King, The (Der Todesking)",
+        "movie_genre" : "Drama|Horror",
+        "production_year" : 2020,
+        "budget" : 18895
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2ed"),
+        "id" : 310,
+        "movie_name" : "Double Indemnity",
+        "movie_genre" : "Crime|Drama|Thriller",
+        "production_year" : 2020,
+        "budget" : 15446
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2f6"),
+        "id" : 319,
+        "movie_name" : "Ghosts... of the Civil Dead",
+        "movie_genre" : "Crime|Drama",
+        "production_year" : 2020,
+        "budget" : 13705
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e315"),
+        "id" : 350,
+        "movie_name" : "Green Fish (Chorok mulkogi)",
+        "movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 15823
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e37f"),
+        "id" : 456,
+        "movie_name" : "Happy New Year",
+        "movie_genre" : "Comedy|Crime|Romance",
+        "production_year" : 2020,
+        "budget" : 12560
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c2"),
+        "id" : 11,
+        "movie_name" : "Last Night",
+        "movie_genre" : "Drama|Sci-Fi",
+        "production_year" : 2020,
+        "budget" : 9749
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c5"),
+        "id" : 14,
+        "movie_name" : "Moloch (Molokh)",
+        "movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 19093
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2a3"),
+        "id" : 236,
+        "movie_name" : "My Father's Glory (La gloire de mon père)",
+        "movie_genre" : "Adventure|Drama",
+        "production_year" : 2020,
+        "budget" : 16025
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e2f1"),
+        "id" : 314,
+        "movie_name" : "NATO's Secret Armies (Gladio: L'esercito segreto della Nato)",
+        "movie_genre" : "Documentary",
+        "production_year" : 2020,
+        "budget" : 19581
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e207"),
+        "id" : 80,
+        "movie_name" : "Schindler's List",
+        "movie_genre" : "Drama|War",
+        "production_year" : 2020,
+        "budget" : 13665
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e395"),
+        "id" : 478,
+        "movie_name" : "Yellow Handkerchief, The",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2020,
+        "budget" : 14047
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e260"),
+        "id" : 169,
+        "movie_name" : "City Hall",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2019,
+        "budget" : 14353
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1d7"),
+        "id" : 32,
+        "movie_name" : "Double Trouble",
+        "movie_genre" : "Musical",
+        "production_year" : 2019,
+        "budget" : 15683
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e28b"),
+        "id" : 212,
+        "movie_name" : "Elevator to the Gallows (a.k.a. Frantic) (Ascenseur pour l'échafaud)",
+        "movie_genre" : "Crime|Drama|Thriller",
+        "production_year" : 2019,
+        "budget" : 16993
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e357"),
+        "id" : 416,
+        "movie_name" : "Executioner, The",
+        "movie_genre" : "Drama|Thriller",
+        "production_year" : 2019,
+        "budget" : 14099
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ce"),
+        "id" : 23,
+        "movie_name" : "Goodbye, Mr. Chips",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : 2019,
+        "budget" : 15735
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e31d"),
+        "id" : 358,
+        "movie_name" : "Houseguest",
+        "movie_genre" : "Comedy",
+        "production_year" : 2019,
+        "budget" : 10693
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e3a7"),
+        "id" : 496,
+        "movie_name" : "Independence Day (a.k.a. ID4)",
+        "movie_genre" : "Action|Adventure|Sci-Fi|Thriller",
+        "production_year" : 2019,
+        "budget" : 19234
+}
+Type "it" for more
+
+
+db.movies.find({}).skip(10).limit(5).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c2"),
+        "id" : 11,
+        "movie_name" : "Last Night",
+        "movie_genre" : "Drama|Sci-Fi",
+        "production_year" : 2020,
+        "budget" : 9749
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c3"),
+        "id" : 12,
+        "movie_name" : "Daniel",
+        "movie_genre" : "Drama",
+        "production_year" : 2014,
+        "budget" : 12141
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c4"),
+        "id" : 13,
+        "movie_name" : "Save the Date",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2017,
+        "budget" : 11951
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c5"),
+        "id" : 14,
+        "movie_name" : "Moloch (Molokh)",
+        "movie_genre" : "Drama",
+        "production_year" : 2020,
+        "budget" : 19093
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c6"),
+        "id" : 15,
+        "movie_name" : "Princess and the Frog, The",
+        "movie_genre" : "Animation|Children|Fantasy|Musical|Romance",
+        "production_year" : 1994,
+        "budget" : 19960
+}
+
+
+ db.movies.find({},{"movie_genre":0}).limit(10).pretty()
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b8"),
+        "id" : 1,
+        "movie_name" : "Slacker",
+        "production_year" : 2008,
+        "budget" : 12028
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1b9"),
+        "id" : 2,
+        "movie_name" : "Fugly!",
+        "production_year" : 1995,
+        "budget" : 14094
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1ba"),
+        "id" : 3,
+        "movie_name" : "Mission: Impossible II",
+        "production_year" : 2001,
+        "budget" : 18585
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bb"),
+        "id" : 4,
+        "movie_name" : "Safety Patrol",
+        "production_year" : 2016,
+        "budget" : 15804
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bc"),
+        "id" : 5,
+        "movie_name" : "Rebirth of Mothra",
+        "production_year" : 1992,
+        "budget" : 18730
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bd"),
+        "id" : 6,
+        "movie_name" : "Lifted",
+        "production_year" : 2001,
+        "budget" : 16366
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1be"),
+        "id" : 7,
+        "movie_name" : "Fritz the Cat",
+        "production_year" : 1991,
+        "budget" : 11644
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1bf"),
+        "id" : 8,
+        "movie_name" : "Pokrajina St.2",
+        "production_year" : 1993,
+        "budget" : 18965
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c0"),
+        "id" : 9,
+        "movie_name" : "Last Man, The",
+        "production_year" : 2017,
+        "budget" : 19257
+}
+{
+        "_id" : ObjectId("626050f5b0bc69e1dc78e1c1"),
+        "id" : 10,
+        "movie_name" : "Chocolate",
+        "production_year" : 2017,
+        "budget" : 10536
+}
