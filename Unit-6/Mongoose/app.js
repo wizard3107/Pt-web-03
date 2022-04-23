@@ -6,7 +6,7 @@ const app = express();
 const PORT = 8000
 
 const connect = () => {
-    return mongoose.connect("mongodb://localhost:27017/test", {
+    return mongoose.connect("mongodb://localhost:27017/intro", {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true
