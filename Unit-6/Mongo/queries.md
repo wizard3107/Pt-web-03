@@ -63,3 +63,7 @@ db.users.find({"age":{$gt:40}).sort(age:-1).pretty()
 
 db.users.find({"age":{$gt:40}).sort(age:1).limit(5).pretty()
  it will print only 5 results 
+
+## unset
+db.movies.updateMany({"id":{$lt:11}}, {$unset:{"movie_genre":""}})
+remove the field movie_genre form schema
